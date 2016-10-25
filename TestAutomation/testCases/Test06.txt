@@ -1,11 +1,6 @@
 06
 requirment to be tested
-
-
 ArrayUtil
-
-
 contains
-
 Object[] target == null, Object search == null
 false
