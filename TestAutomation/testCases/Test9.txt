@@ -1,0 +1,6 @@
+09
+requirment to test
+ArrayUtil
+contains
+Object[] target = [new Object test2], Object search = new Object test
+false
