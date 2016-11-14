@@ -9,7 +9,7 @@ cd..
 #run all test cases
 
 #compare test output to oracles and create report
-/scripts/compare.py output.txt oracle.txt report.txt
+./compare.py output.txt oracle.txt report.txt
 
 #change report.txt to report.html
 
