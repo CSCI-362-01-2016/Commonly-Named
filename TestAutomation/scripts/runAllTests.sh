@@ -1,13 +1,12 @@
 #!/bin/bash
 
-#delete previous reports
-cd /temp
-rm reports.txt
-rm reports.html
-cd..
+#Compile java code
+javac MainDriver.java
+javac ContainsDriver.java
+javac StringUtil.java
 
 #run all test cases
-
+java MainDriver
 #compare test output to oracles and create report
 ./compare.py output.txt oracle.txt report.txt
 
