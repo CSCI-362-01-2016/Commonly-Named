@@ -29,6 +29,8 @@ do
 	echo "</br>" >> Report.html
 done
 
+echo "</br>" >> Report.html
+echo "ALL OTHER TESTS HAVE PASSED" >> Report.html
 echo "</body>" >> Report.html
 echo "</html>" >> Report.html
 
