@@ -34,5 +34,5 @@ echo "ALL OTHER TESTS HAVE PASSED" >> Report.html
 echo "</body>" >> Report.html
 echo "</html>" >> Report.html
 
-#launch reports.html 
-x-www-browser reports.html
+#launch Report.html 
+x-www-browser Report.html
