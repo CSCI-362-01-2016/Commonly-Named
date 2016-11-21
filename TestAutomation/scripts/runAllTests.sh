@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Delete Report.html
-rm Report.html
+rm /temp/Report.html
 
 #run all test cases
 #
@@ -9,6 +9,7 @@ rm Report.html
 FILES="/testCases/*.txt"
 for f in $FILES
 do
+  SRC="/testCaseExecutables/"
   echo "Processing $f file..."
   # Reads each line in file to a cell in an array called lines
   # ${lines[0]} = testCaseNumber
@@ -17,19 +18,33 @@ do
   # ${lines[3]} = driver.java
   # ${lines[4]} = oracle
   # ${lines[5]} = inputs
-  IFS=$'\n' read -d '' -r -a lines < $f
-  cat $f
-  #compile ${lines[3]}
-  #run driver with arguments in ${lines[5]}
-  #store result in ${lines[6]}
-  #compare ${lines[4]} to ${lines[6]}
-  #store report in ${lines[7]}
+  IFS=$'\n' read -d '' -r -a lines < "$f"
+  #create source path from SRC variable and line 3
+  SRC+="${lines[3]}"
+  echo "$SRC"
+  #compile /testCaseExecutables/${lines[3]}
+  BUILDCMD="javac $SRC"
+  echo "$BUILDCMD"
+  eval "$BUILDCMD"  #creates driver.class file in /testCaseExecutables/
+  #DRIVER="/testCaseExecutables/" + ${lines[3]} - ".java"
+  DRIVER="${SRC%.*}"
+  echo "$DRIVER"
+  #run driver with arguments in ${lines[5]} and  store result in ${lines[6]}
+  RUNCMD="java $DRIVER ${lines[5]}"
+  echo "$RUNCMD"
+  lines[6]=$(eval "$RUNCMD")
+  #compare ${lines[4]} to ${lines[6]} and store report in ${lines[7]}
+  if [ "${lines[4]}" == "${lines[6]}" ]; then   
+  lines[7]="PASS"
+  else
+  lines[7]="FAIL"
+  fi
+  
+  
   #format row of table
   
 done
 
-#compare test output to oracles and create report
-./compare.py Results.txt Oracle.txt Report.txt
 
 #change report.txt to report.html
 echo "<!DOCTYPE html>" > Report.html
