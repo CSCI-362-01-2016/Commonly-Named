@@ -1,7 +1,13 @@
 #!/bin/bash
 
 #Compile all .java files in /project/src/
-
+COMPILELIST="/project/src/*.java"
+for i in $COMPILELIST
+do
+  CMD="javac $i"
+  eval "CMD"
+done  
+  
 #Delete Report.html
 rm /temp/Report.html
 
@@ -106,7 +112,7 @@ do
     echo " </font>"
     echo " </td>"
     echo "</tr>"
-} >> /temp/Reports.html
+  } >> /temp/Reports.html
   
 done
 
@@ -119,4 +125,4 @@ done
 } >> /temp/Reports.html
 
 #launch Report.html 
-x-www-browser Report.html
+x-www-browser /temp/Report.html
