@@ -77,32 +77,32 @@ do
   #format row of table for this test case
   {
     echo "<tr>"
-    echo "  <th>"
+    echo "  <td>"
     echo ${lines[0]}
-    echo " </th>"
-    echo "  <th>"
+    echo " </td>"
+    echo "  <td>"
     echo ${lines[1]}
-    echo " </th>"
-    echo "  <th>"
+    echo " </td>"
+    echo "  <td>"
     echo ${lines[2]}
-    echo " </th>"
-    echo "  <th>"
+    echo " </td>"
+    echo "  <td>"
     echo ${lines[3]}
-    echo " </th>"
-    echo "  <th>"
+    echo " </td>"
+    echo "  <td>"
     echo ${lines[4]}
-    echo " </th>"
-    echo "  <th>"
+    echo " </td>"
+    echo "  <td>"
     echo ${lines[5]}
-    echo " </th>" 
-    echo "  <th>"
+    echo " </td>" 
+    echo "  <td>"
     echo ${lines[6]}
-    echo " </th>"
-    echo "  <th>"
-    echo " <font color=$COLOR>" #color codes test result for quick, easy assessment
+    echo " </td>"
+    echo "  <td>"
+    echo " <font color=\"$COLOR\">" #color codes test result for quick, easy assessment
     echo ${lines[7]}            #green indicates PASS; red indicates FAIL
     echo " </font>"
-    echo " </th>"
+    echo " </td>"
     echo "</tr>"
 } >> /temp/Reports.html
   
