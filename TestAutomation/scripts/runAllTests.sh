@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Compile all .java files in /project/src/
+
 #Delete Report.html
 rm /temp/Report.html
 
