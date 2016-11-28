@@ -1,6 +1,0 @@
-11
-requirment to test
-ArrayUtil
-contains
-target = [Object test1, Object test2, Object test3, Object test4], search = Object test3
-true
