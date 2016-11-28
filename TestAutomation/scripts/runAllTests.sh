@@ -1,5 +1,7 @@
 #!/bin/bash
 
+##now runs from tmp/test11.txt
+
 #Compile all .java files in /project/src/
 COMPILELIST="/project/src/*.java"
 for i in $COMPILELIST
@@ -8,8 +10,8 @@ do
   eval "CMD"
 done  
   
-#Delete Report.html
-rm /temp/Report.html
+#Delete temp dir
+rm /temp/*
 
 #create Reports.html with header
 {
@@ -68,7 +70,11 @@ do
   #run driver with arguments in ${lines[5]} and  store result in ${lines[6]}
   RUNCMD="java $DRIVER ${lines[5]}"
   echo "$RUNCMD"
-  lines[6]=$(eval "$RUNCMD")
+  eval "$RUNCMD"
+  RESULT="/tmp/"
+  RESULT+="${lines[0]}"
+  RESULT+=".txt"
+  read -r lines[6] < $RESULT) #reads first line of tmp/testCase.txt
   
   #compare ${lines[4]} to ${lines[6]} and store report in ${lines[7]}
   if [ "${lines[4]}" == "${lines[6]}" ]; then   
@@ -108,7 +114,7 @@ do
     echo " </td>"
     echo "  <td>"
     echo " <font color=\"$COLOR\">" #color codes test result for quick, easy assessment
-    echo ${lines[7]}            #green indicates PASS; red indicates FAIL
+    echo ${lines[7]}                #green indicates PASS; red indicates FAIL
     echo " </font>"
     echo " </td>"
     echo "</tr>"
