@@ -1,0 +1,6 @@
+Test05
+Valid list containing elements
+StringUtil.contains
+ContainsDriver.java
+false
+test7:test1,test2,test3,test4
