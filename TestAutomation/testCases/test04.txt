@@ -1,6 +1,0 @@
-04
-requirement being tested
-GradebookManagerImpl
-createEmptyGradebook
-"", ""
-Error
