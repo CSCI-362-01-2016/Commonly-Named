@@ -1,6 +1,0 @@
-08
-requirment to test
-ArrayUtil
-contains
-Object[] target = [new Object test], Object search = new Object test
-true
