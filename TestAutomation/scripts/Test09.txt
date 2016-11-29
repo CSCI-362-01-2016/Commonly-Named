@@ -1,9 +1,0 @@
-09
-requirment to test
-ArrayUtil
-contains
-target
-test2
-search
-test1
-false
