@@ -67,8 +67,13 @@ do
   DRIVER="${SRC%.*}"
   echo "$DRIVER"
   
+  #INPUTS =${lines[5]} + "," + ${lines[0]}
+  INPUTS="${lines[5]}"
+  INPUTS+=","
+  INPUTS+="${lines[0]}"
+  
   #run driver with arguments in ${lines[5]} and  store result in ${lines[6]}
-  RUNCMD="java $DRIVER ${lines[5]}"
+  RUNCMD="java $DRIVER $INPUTS"
   echo "$RUNCMD"
   eval "$RUNCMD"
   RESULT="/tmp/"
@@ -119,6 +124,9 @@ do
     echo " </td>"
     echo "</tr>"
   } >> /temp/Reports.html
+ 
+  #Deletes lines array to free memory for future loops
+  unset lines
   
 done
 
