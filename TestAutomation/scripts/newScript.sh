@@ -6,17 +6,16 @@ do
   #echo ${i##*/}
   CMD="javac ./project/src/"${i##*/}
   #CMD=${i##*/}
-  echo $CMD
-  eval $CMD
+  echo "$CMD"
+  eval "$CMD"
 done
 
 #Delete temp dir
 for i in ./temp/*;
 do
-  #echo ${i##*/}
   CMD="rm ./temp/"${i##*/}
-  echo $CMD
-  eval $CMD
+  echo "$CMD"
+  eval "$CMD"
 done
 
 #create Reports.html with header
@@ -67,19 +66,6 @@ do
   BUILDCMD="javac $SRC"
   echo "$BUILDCMD"
   eval "$BUILDCMD"  #creates driver.class file in /testCaseExecutables/
-
-
-
-  #/////////////////////////////test//////////////////////////
-
-  #compile /testCaseExecutables/${lines[3]}
-  #DRIVER="java $SRC"
-  #echo "$DRIVER"
-  #eval "$BUILDCMD"  #creates driver.class file in /testCaseExecutables/
-
-  #/////////////////////////////test/////////////////////////
-  
-
 
   #DRIVER="/testCaseExecutables/" + ${lines[3]} - ".java"
   DRIVER="${lines[3]%.*}"
