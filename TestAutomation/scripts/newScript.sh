@@ -1,11 +1,6 @@
 #!/bin/bash
 
 #Compile all .java files in /project/src/
-#COMPILELIST="/project/src/*.java"
-#COMPILELIST=/project/src/*.java"
-#for i in $COMPILELIST
-#cd project/src/
-#for i in ./project/src/*.java;
 for i in ./project/src/*.java;
 do
   #echo ${i##*/}
@@ -16,15 +11,10 @@ do
 done
 
 #Delete temp dir
-#cd ..
-#cd ..
 for i in ./temp/*;
 do
   #echo ${i##*/}
   CMD="rm ./temp/"${i##*/}
-
-
-  #rm $CMD
   echo $CMD
   eval $CMD
 done
@@ -49,12 +39,6 @@ done
   echo "  <th>Test Result</th>"
   echo "</tr>"
 } >> ./temp/Report.html 
-
-
-
-
-
-
 
 #run all test cases
 #
@@ -110,9 +94,9 @@ do
   
   #run driver with arguments in ${lines[5]} and  store result in ${lines[6]}
   
-  RUNCMD="java testCaseExecutables.$DRIVER $INPUTS"
+  RUNCMD="java testCaseExecutables.$DRIVER"
   echo "$RUNCMD"
-  eval "$RUNCMD"
+  eval "$RUNCMD" "$INPUTS"
   RESULT="./temp/"
   RESULT+="${lines[0]}"
   RESULT+=".txt"
