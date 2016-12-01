@@ -1,6 +1,0 @@
-Test23
-Must return a string representation of a Student
-Student.toString
-ToStringStudentConstructorOneDriver.java
-01:tester
-01:tester:Joe
