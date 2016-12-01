@@ -1,21 +1,32 @@
 #!/bin/bash
 
 #Compile all .java files in /project/src/
+#COMPILELIST="/project/src/*.java"
+#COMPILELIST=/project/src/*.java"
+#for i in $COMPILELIST
+#cd project/src/
+#for i in ./project/src/*.java;
 for i in ./project/src/*.java;
 do
   #echo ${i##*/}
   CMD="javac ./project/src/"${i##*/}
   #CMD=${i##*/}
-  echo "$CMD"
-  eval "$CMD"
+  echo $CMD
+  eval $CMD
 done
 
 #Delete temp dir
+#cd ..
+#cd ..
 for i in ./temp/*;
 do
+  #echo ${i##*/}
   CMD="rm ./temp/"${i##*/}
-  echo "$CMD"
-  eval "$CMD"
+
+
+  #rm $CMD
+  echo $CMD
+  eval $CMD
 done
 
 #create Reports.html with header
@@ -38,6 +49,12 @@ done
   echo "  <th>Test Result</th>"
   echo "</tr>"
 } >> ./temp/Report.html 
+
+
+
+
+
+
 
 #run all test cases
 #
@@ -67,6 +84,19 @@ do
   echo "$BUILDCMD"
   eval "$BUILDCMD"  #creates driver.class file in /testCaseExecutables/
 
+
+
+  #/////////////////////////////test//////////////////////////
+
+  #compile /testCaseExecutables/${lines[3]}
+  #DRIVER="java $SRC"
+  #echo "$DRIVER"
+  #eval "$BUILDCMD"  #creates driver.class file in /testCaseExecutables/
+
+  #/////////////////////////////test/////////////////////////
+  
+
+
   #DRIVER="/testCaseExecutables/" + ${lines[3]} - ".java"
   DRIVER="${lines[3]%.*}"
   echo "$DRIVER"
@@ -80,9 +110,9 @@ do
   
   #run driver with arguments in ${lines[5]} and  store result in ${lines[6]}
   
-  RUNCMD="java testCaseExecutables.$DRIVER"
+  RUNCMD="java testCaseExecutables.$DRIVER $INPUTS"
   echo "$RUNCMD"
-  eval "$RUNCMD" "$INPUTS"
+  eval "$RUNCMD"
   RESULT="./temp/"
   RESULT+="${lines[0]}"
   RESULT+=".txt"
