@@ -1,0 +1,6 @@
+Test18
+Must provide a String representation of a User
+User.toString
+
+01:tester
+"01":"tester":"Joe"
