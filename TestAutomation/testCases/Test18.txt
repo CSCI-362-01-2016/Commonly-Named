@@ -1,6 +1,0 @@
-Test18
-Must provide a String representation of a User
-User.toString
-ToStringUserDriver
-01:tester
-"01":"tester":"Joe"
