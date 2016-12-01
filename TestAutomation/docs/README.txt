@@ -1,9 +1,3 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
-
 PROJECT TITLE: Automated Testing Suite for Sakai 11 CLE
 PURPOSE OF PROJECT: To create a testing suite for an FOSS
 VERSION or DATE: 11/30/2016
