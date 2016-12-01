@@ -1,6 +1,0 @@
-Test12
-The string must be trimmed of blanks and made lowercase
-StringUtil.trimToNullLower
-TrimLowerDriver.java
-thetesthasrun
-The TEST HAsruN
