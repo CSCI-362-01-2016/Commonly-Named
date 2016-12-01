@@ -1,31 +1,24 @@
 #!/bin/bash
 
 #Compile all .java files in /project/src/
-#COMPILELIST="/project/src/*.java"
-#COMPILELIST=/project/src/*.java"
-#for i in $COMPILELIST
-#cd project/src/
-#for i in ./project/src/*.java;
 for i in ./project/src/*.java;
 do
-  #echo ${i##*/}
   CMD="javac ./project/src/"${i##*/}
-  #CMD=${i##*/}
-  echo $CMD
+  eval $CMD
+done
+
+#for i in ./testCaseExecutables/*.java;
+for i in ./testCaseExecutables/*.java;
+do
+  CMD="javac ./testCaseExecutables/"${i##*/}
   eval $CMD
 done
 
 #Delete temp dir
-#cd ..
-#cd ..
 for i in ./temp/*;
 do
   #echo ${i##*/}
   CMD="rm ./temp/"${i##*/}
-
-
-  #rm $CMD
-  echo $CMD
   eval $CMD
 done
 
@@ -77,41 +70,18 @@ do
   
   #create source path from SRC variable and line 3
   SRC+="${lines[3]}"
-  echo "$SRC"
-  
-  #compile /testCaseExecutables/${lines[3]}
-  BUILDCMD="javac $SRC"
-  echo "$BUILDCMD"
-  eval "$BUILDCMD"  #creates driver.class file in /testCaseExecutables/
-
-
-
-  #/////////////////////////////test//////////////////////////
-
-  #compile /testCaseExecutables/${lines[3]}
-  #DRIVER="java $SRC"
-  #echo "$DRIVER"
-  #eval "$BUILDCMD"  #creates driver.class file in /testCaseExecutables/
-
-  #/////////////////////////////test/////////////////////////
-  
-
 
   #DRIVER="/testCaseExecutables/" + ${lines[3]} - ".java"
   DRIVER="${lines[3]%.*}"
-  echo "$DRIVER"
   
   #INPUTS =${lines[5]} + "," + ${lines[0]}
   INPUTS="${lines[5]}"
-  echo "$INPUTS"
   INPUTS+=":"
   INPUTS+="${lines[0]}"
-  echo "$INPUTS"
   
   #run driver with arguments in ${lines[5]} and  store result in ${lines[6]}
   
-  RUNCMD="java testCaseExecutables.$DRIVER $INPUTS"
-  echo "$RUNCMD"
+  RUNCMD="java testCaseExecutables.$DRIVER '$INPUTS'"
   eval "$RUNCMD"
   RESULT="./temp/"
   RESULT+="${lines[0]}"
@@ -119,7 +89,7 @@ do
   read -r lines[6] < $RESULT #reads first line of tmp/testCase.txt
   
   #compare ${lines[4]} to ${lines[6]} and store report in ${lines[7]}
-  if [ "${lines[4]}" == "${lines[6]}" ]; then   
+  if [[ "${lines[4]}"  =  *"${lines[6]}"* ]]; then   ##uses pattern matching to ignore any spaces
   lines[7]="PASS"
   else
   lines[7]="FAIL"
