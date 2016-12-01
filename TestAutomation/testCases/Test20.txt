@@ -1,6 +1,0 @@
-Test20
-Must return a string representation of a User
-User.toString
-ToStringUserDriver.java
- : 
-" ":" ":" "
