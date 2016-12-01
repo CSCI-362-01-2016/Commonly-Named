@@ -43,12 +43,6 @@ done
   echo "</tr>"
 } >> ./temp/Report.html 
 
-
-
-
-
-
-
 #run all test cases
 #
 #for each .txt file in testCases..
