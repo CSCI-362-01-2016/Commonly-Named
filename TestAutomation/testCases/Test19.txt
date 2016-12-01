@@ -1,6 +1,0 @@
-Test19
-Must return a string representation of a User
-User.toString
-
-:
-null:null:null
