@@ -1,0 +1,6 @@
+Test07
+The string must be trimmed of blanks and made lowercase
+StringUtil.trimToNullLower
+TrimLowerDriver.java
+  the test has run  
+The Test Has Run
