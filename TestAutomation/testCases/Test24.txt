@@ -1,6 +1,0 @@
-Test24
-Must provide a String representation of a Student
-Student.toString
-ToStringStudentConstructorOneDriver.java
-642029:Frank J. Corn
-642029:Frank J. Corn:null
