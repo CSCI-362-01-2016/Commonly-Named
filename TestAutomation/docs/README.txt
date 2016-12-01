@@ -12,4 +12,4 @@ AUTHORS: James Rhoten, Max Hyaska, Joe Lester
 USER INSTRUCTIONS: 
 1)Ensure Java 1.8 is installed on your machine.
 2)Navigate to the TestAutomation/scripts dir in the shell and run the command "chmod +x runAllScripts.sh". 
-3)Navigate up a directory to ./TestAutomation and run the script by typing "runAllScripts.sh".
+3)Navigate up a directory to ./TestAutomation and run the script by typing "./scripts/runAllScripts.sh".
